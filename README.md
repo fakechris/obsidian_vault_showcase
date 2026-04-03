@@ -11,7 +11,7 @@ type: meta
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Obsidian](https://img.shields.io/badge/Obsidian-Plugin-7C3AED?logo=obsidian)](https://obsidian.md)
+[![PyPI](https://img.shields.io/pypi/v/obsidian-vault-pipeline.svg)](https://pypi.org/project/obsidian-vault-pipeline/)
 
 **带完整Demo的开箱即用Obsidian知识库**
 
@@ -90,7 +90,25 @@ cd my-vault
 
 ### 方式三：在此基础上继续生成（开发者）
 
-本项目包含完整的Pipeline脚本，配置API Key后可继续生成内容：
+本项目包含完整的Pipeline脚本，配置API Key后可继续生成内容。
+
+**通过 pip 安装（推荐）：**
+
+```bash
+# 1. 安装Pipeline工具
+pip install obsidian-vault-pipeline
+
+# 2. 初始化配置（交互式向导）
+ovp --init
+
+# 3. 验证环境
+ovp --check
+
+# 4. 运行Pipeline继续生成
+ovp --full
+```
+
+**或通过本地脚本：**
 
 ```bash
 # 1. 配置API Key（交互式向导）
