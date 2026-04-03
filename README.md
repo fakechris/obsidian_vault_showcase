@@ -1,72 +1,218 @@
-# OpenClaw Showcase
+---
+title: "Obsidian Vault Showcase"
+description: "带完整Demo的开箱即用知识库"
+date: 2026-04-03
+type: meta
+---
 
-> 这是一个 **OpenClaw Vault Pipeline** 的样板项目，展示完整的知识管理工作流。
+# Obsidian Vault Showcase
+
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Obsidian](https://img.shields.io/badge/Obsidian-Plugin-7C3AED?logo=obsidian)](https://obsidian.md)
+
+**带完整Demo的开箱即用Obsidian知识库**
+
+🌳 8个Evergreen概念 • 📚 76篇深度解读 • 🗺️ 3个知识地图
+
+[📖 浏览内容](#浏览内容) • [🚀 快速开始](#快速开始) • [⬇️ 下载使用](#下载使用)
+
+</div>
 
 ---
 
 ## 这是什么？
 
-本项目展示了一个全自动化的 Obsidian 知识管理系统的**最终效果**，包含：
+这是一个**完整的、带演示数据**的Obsidian知识库，展示了自动化知识管理Pipeline的最终效果。
 
-- 🌳 **8 个 Evergreen 原子笔记** - 核心概念（AI Agent、Agent Architecture、Agentic Coding 等）
-- 📚 **76 篇深度解读** - 技术文章、GitHub 项目的结构化分析
-- 🗺️ **3 个 MOC 知识地图** - AI、工具、编程的领域索引
-- 🔗 **双向链接网络** - 概念之间的关联
+相比[obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline)（纯代码模板），本项目**开箱即用**，包含76篇真实深度解读作为演示。
+
+### 包含内容
+
+| 类型 | 数量 | 说明 |
+|------|------|------|
+| 🌳 **Evergreen原子笔记** | 8个 | AI Agent、Prompt Caching等核心概念 |
+| 📚 **深度解读** | 76篇 | GitHub项目分析、技术文章解读 |
+| 🗺️ **MOC知识地图** | 3个 | AI、工具、编程领域导航 |
+| 🔧 **Pipeline脚本** | 全套 | 可继续自动生成内容 |
+| 🔗 **双向链接网络** | 200+ | 概念之间的关联关系 |
 
 ---
 
-## 目录结构
+## 浏览内容
+
+### 直接在GitHub上浏览
+
+| 目录 | 内容 |
+|------|------|
+| [10-Knowledge/Evergreen/](10-Knowledge/Evergreen/) | 8个原子概念笔记 |
+| [10-Knowledge/Atlas/](10-Knowledge/Atlas/) | 3个MOC知识地图 |
+| [20-Areas/Tools/](20-Areas/Tools/) | 70个GitHub项目分析 |
+| [20-Areas/Programming/](20-Areas/Programming/) | 编程技术深度解读 |
+| [20-Areas/AI-Research/](20-Areas/AI-Research/) | AI研究文章解读 |
+
+### 内容示例
+
+**Evergreen 笔记**:
+- [Agent Harness](10-Knowledge/Evergreen/Agent-Harness.md) - 完整的agent环境设计框架
+- [Prompt Caching](10-Knowledge/Evergreen/Prompt-Caching.md) - 长会话优化核心技术
+- [Context Engineering](10-Knowledge/Evergreen/Context-Engineering.md) - 上下文管理
+
+**深度解读**:
+- [Kaku - AI编程终端](20-Areas/Tools/Topics/2026-02/2026-04-02_tw93_kaku.md)
+- [Levelsio Claude Code 10x实践](20-Areas/Programming/Levelsio-Claude-Code-10x实践.md)
+- [Claude Prompt Auto-Caching](20-Areas/Programming/Claude-Prompt-Auto-Caching.md)
+
+---
+
+## 快速开始
+
+### 方式一：只看效果（推荐新手）
+
+直接在GitHub上浏览上述链接，查看内容结构和质量。
+
+### 方式二：本地体验Obsidian
+
+```bash
+# 克隆项目
+git clone https://github.com/fakechris/obsidian_vault_showcase.git my-vault
+cd my-vault
+
+# 用Obsidian打开
+# 1. 打开Obsidian应用
+# 2. "Open folder as vault"
+# 3. 选择 my-vault 目录
+# 4. 查看Graph View体验双向链接网络
+```
+
+### 方式三：在此基础上继续生成（开发者）
+
+本项目包含完整的Pipeline脚本，配置API Key后可继续生成内容：
+
+```bash
+# 1. 配置API Key（交互式向导）
+python3 60-Logs/scripts/unified_pipeline_enhanced.py --init
+
+# 2. 验证环境
+python3 60-Logs/scripts/unified_pipeline_enhanced.py --check
+
+# 3. 安装依赖
+pip install -r requirements.txt
+
+# 4. 运行Pipeline继续生成
+python3 60-Logs/scripts/unified_pipeline_enhanced.py --full
+```
+
+---
+
+## 下载使用
+
+### 环境要求
+
+- **Obsidian**: 最新版本（用于浏览和编辑）
+- **Python**: 3.10+（用于运行Pipeline生成新内容）
+- **API Key**: MiniMax/Anthropic/OpenAI（可选，用于生成）
+
+### 文件说明
 
 ```
-openclaw-showcase/
-├── 00-Polaris/
-│   ├── README.md          # 北极星 - 当前关注重点
-│   └── Home.md            # 入口导航（简化版）
+my-vault/
+├── 00-Polaris/Home.md          # Obsidian首页入口
 ├── 10-Knowledge/
-│   ├── Evergreen/         # 🌳 8 个原子化知识概念
-│   └── Atlas/             # 🗺️ 3 个 MOC 知识地图
-├── 20-Areas/
-│   ├── AI-Research/       # 🤖 3 篇 AI 研究深度解读
-│   ├── Programming/       # 💻 3 篇编程技术解读
-│   └── Tools/             # 🛠️ 70 个 GitHub 项目分析
-└── ...
+│   ├── Evergreen/              # 8个原子概念笔记
+│   └── Atlas/                  # 3个MOC知识地图
+├── 20-Areas/                   # 76篇深度解读
+├── 50-Inbox/                   # 待处理内容（空，等你填充）
+├── 60-Logs/
+│   └── scripts/                # ✅ 完整Pipeline脚本
+│       ├── unified_pipeline_enhanced.py  # 主入口
+│       ├── auto_article_processor.py
+│       ├── auto_evergreen_extractor.py
+│       └── ...
+├── 90-Templates/               # 笔记模板
+└── requirements.txt            # Python依赖
+```
+
+### 配置API Key
+
+编辑 `.env` 文件（从 `.env.example` 复制）：
+
+```bash
+# LLM API（必需，用于生成新内容）
+AUTO_VAULT_API_KEY=your_key_here
+AUTO_VAULT_API_BASE=https://api.minimaxi.com/anthropic
+AUTO_VAULT_MODEL=minimax/MiniMax-M2.5
+
+# Pinboard（可选，用于自动抓取书签）
+PINBOARD_TOKEN=username:token
 ```
 
 ---
 
-## 内容亮点
+## 相关项目
 
-### Evergreen 笔记示例
-- **AI-Agent** - AI 智能体概念定义
-- **Agent-Architecture** - 智能体架构模式
-- **Agentic-Coding** - 智能化编程方法论
-- **AI-Memory-Stack** - AI 记忆系统架构
-- **Adversarial-Review** - 对抗性审查方法
-- **Agent-Tools-Design** - 智能体工具设计
-- **Autoresearch** - 自动化研究框架
-- **Backpressure** - 背压控制机制
+| 项目 | 用途 | 适合场景 |
+|------|------|----------|
+| **obsidian_vault_showcase** | 本项目 - **带Demo的开箱即用版本** | 想先看效果，或基于现有内容继续 |
+| [**obsidian_vault_pipeline**](https://github.com/fakechris/obsidian_vault_pipeline) | 模板项目 - **纯代码，从零开始** | 想完全自定义，理解Pipeline实现 |
 
-### 深度解读示例
+### 如何选择？
 
-**AI 研究**
-- x-reader 深度解读
-- Self-Improving AI System 深度解读
-- Obsidian Claude Workflow 深度解读
-
-**编程技术**
-- Claude Prompt Auto Caching
-- Levelsio Claude Code 10x 实践
-- Writing Code Is Cheap Now
-
-**工具分析**（70 个 GitHub 项目）
-- TypeScript、LangChain、Playwright 等知名项目
-- 各类 AI Agent、CLI 工具、自动化工具
+| 你的需求 | 推荐项目 | 原因 |
+|----------|----------|------|
+| 想先看看效果再决定是否使用 | **本项目** | 有76篇真实内容可浏览 |
+| 想开箱即用，在上面改 | **本项目** | 克隆后直接Obsidian打开 |
+| 想从零开始，完全自定义 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 空白模板，无demo数据 |
+| 想了解Pipeline技术实现 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 代码结构更清晰 |
+| 想基于现有内容继续生成 | **本项目** | 已有内容+完整脚本 |
 
 ---
 
-## 工作流特征
+## 核心特性
 
-所有内容都遵循 **6 维度质量模型**：
+本项目展示了以下Pipeline能力：
+
+- ✅ **6维度深度解读** - 定义/解释/细节/架构/行动/关联
+- ✅ **Evergreen原子笔记自动提取** - LLM识别核心概念
+- ✅ **MOC知识地图自动维护** - 双向链接导航
+- ✅ **质量门禁系统** - 提交前自动检查
+- ✅ **WIGS完整性保障** - 5层一致性检查
+- ✅ **结构化审计日志** - JSONL格式完整追踪
+
+---
+
+## 从Showcase到生产
+
+如果你想清空demo数据，建立自己的系统：
+
+```bash
+# 1. Fork或克隆本项目
+git clone https://github.com/fakechris/obsidian_vault_showcase.git my-vault
+cd my-vault
+
+# 2. 删除demo数据（保留目录结构和脚本）
+rm -rf 10-Knowledge/Evergreen/*.md
+rm -rf 20-Areas/*/*/*.md
+rm -rf 10-Knowledge/Atlas/*.md
+
+# 3. 配置API Key
+python3 60-Logs/scripts/unified_pipeline_enhanced.py --init
+
+# 4. 运行Pipeline，生成你自己的内容
+python3 60-Logs/scripts/unified_pipeline_enhanced.py --full
+```
+
+或者，直接使用[obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline)模板项目（已经为空）。
+
+---
+
+## 内容来源与质量
+
+本showcase中的内容均为公开技术文章、GitHub项目文档和学术论文的深度解读，用于展示知识管理系统的结构和质量。
+
+**6维度质量模型**:
 1. 一句话定义
 2. 详细解释 (What/Why/How)
 3. 重要细节 (≥3 个技术点)
@@ -76,50 +222,10 @@ openclaw-showcase/
 
 ---
 
-## 如何使用这个样板
+## 许可证
 
-### 1. 浏览体验
-
-1. 在 Obsidian 中打开此文件夹
-2. 从 `README.md` 开始浏览
-3. 查看 `10-Knowledge/Evergreen/` 中的概念定义
-4. 查看 `20-Areas/Tools/Topics/` 中的项目分析示例
-5. 体验 Obsidian 的 Graph View 查看概念关联
-
-### 2. 理解结构
-
-- **Evergreen**: 原子化概念，可复用的知识单元
-- **深度解读**: 具体文章/项目的结构化分析
-- **MOC**: 领域知识的导航系统
+MIT License - 详见 [LICENSE](LICENSE)
 
 ---
 
-## 如何建立自己的系统
-
-想要这个系统但用自己的内容？
-
-➡️ 使用 **OpenClaw Vault Pipeline** 模板项目：
-
-```bash
-git clone https://github.com/fakechris/obsidian_vault_pipeline.git my-vault
-cd my-vault
-python3 60-Logs/scripts/unified_pipeline_enhanced.py --init
-```
-
-然后运行 Pipeline 自动处理你的输入源。
-
----
-
-## 关于链接网络
-
-> ⚠️ **注意**: 此 showcase 为简化版本，部分双向链接指向的文件未包含在内。完整项目的链接网络包含数百个互联概念。在实际使用中，Pipeline 会自动维护这些链接关系。
-
----
-
-## 内容来源
-
-本样板中的内容均为公开的技术文章、GitHub 项目文档和学术论文的深度解读，用于展示知识管理系统的结构和质量。
-
----
-
-*样板版本: 1.0 | 基于 OpenClaw Vault Pipeline | 95 个文件 | 约 25,000 行内容*
+*版本: 1.0 | 基于 [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 95 个文件 | 约 25,000 行内容*
