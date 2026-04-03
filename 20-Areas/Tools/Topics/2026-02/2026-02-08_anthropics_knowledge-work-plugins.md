@@ -1,0 +1,435 @@
+---
+title: "anthropics/knowledge-work-plugins: Claude Cowork 知识工作插件 (10.8k stars)"
+github: "https://github.com/anthropics/knowledge-work-plugins"
+owner: anthropics
+repo: knowledge-work-plugins
+date: 2026-02-08
+batch_date: 2026-02-08
+type: github-project
+tags: [github, claude, claude-cowork, plugins, knowledge-work, anthropic]
+pinboard_tags: [claude, plugins]
+source_used: github-readme-extract
+source_url: "https://github.com/anthropics/knowledge-work-plugins"
+source_quality: repo_text_extract
+readme_backed: true
+needs_verification: false
+---
+
+# anthropics/knowledge-work-plugins: Claude Cowork 知识工作插件
+
+## 一句话概述
+
+Knowledge Work Plugins 是 Anthropic 开源的 11 个 Claude Cowork 插件集合，将 Claude 转变为销售、客户支持、产品管理、营销、法律、财务等角色的专业助手，通过 Skills、Connectors、Commands 实现即装即用的专业工作流。
+
+## 项目定位
+
+**目标用户**:
+- 使用 Claude Cowork 的知识工作者
+- 需要角色专业化能力的团队
+- 希望定制 Claude 工作流的组织
+
+**解决的问题**:
+- **Claude 通用性过强**: 缺乏特定角色的专业工作流指导
+- **工具集成分散**: 需要为每个工具单独配置连接
+- **团队协作不一致**: 不同成员使用 Claude 方式不统一
+- **公司流程难传递**: 内部术语、流程难以编码到 AI 助手中
+
+**使用场景**:
+- 销售团队研究潜在客户、准备通话
+- 客户支持处理工单、撰写知识库
+- 产品管理写 PRD、规划路线图
+- 营销团队创作内容、管理品牌
+- 法律团队审核合同、处理 NDAs
+- 财务团队编制报表、支持审计
+
+**与同类项目差异**:
+- **Anthropic 官方出品**: 11 个插件，覆盖主要知识工作岗位
+- **即装即用**: Skills 自动触发，Commands 显式调用
+- **可定制**: 修改 connectors、添加公司上下文、调整工作流
+- **文件驱动**: Markdown + JSON，无代码、无基础设施
+- **双平台支持**: Claude Cowork + Claude Code
+
+## README 中文简介
+
+**Knowledge Work Plugins** - 将 Claude 转变为你的角色、团队、公司的专业助手。
+
+**为什么需要插件**:
+Cowork 让你设定目标，Claude 交付完成的专业工作。插件让你更进一步：告诉 Claude 你喜欢的工作方式、使用哪些工具和数据、如何处理关键工作流、暴露哪些斜杠命令 —— 让你的团队获得更好、更一致的结果。
+
+**插件组成**:
+每个插件打包了：
+- **Skills**: 领域知识，Claude 自动使用
+- **Connectors**: 通过 MCP 服务器连接外部工具
+- **Commands**: 显式触发的斜杠命令 (如 `/sales:call-prep`)
+- **Sub-agents**: 专用子代理
+
+**11 个开源插件**:
+
+| 插件 | 帮助方式 | Connectors |
+|------|----------|------------|
+| **productivity** | 管理任务、日历、日常工作流，减少重复描述 | Slack, Notion, Asana, Linear, Jira, Monday, ClickUp, Microsoft 365 |
+| **sales** | 研究客户、准备通话、审查管道、撰写 outreach、构建 battlecards | Slack, HubSpot, Close, Clay, ZoomInfo, Notion, Jira, Fireflies, Microsoft 365 |
+| **customer-support** | 分类工单、起草回复、打包升级、研究客户背景、转为知识库 | Slack, Intercom, HubSpot, Guru, Jira, Notion, Microsoft 365 |
+| **product-management** | 写 spec、规划路线图、综合用户研究、更新利益相关者、追踪竞争 | Slack, Linear, Asana, Monday, ClickUp, Jira, Notion, Figma, Amplitude, Pendo, Intercom, Fireflies |
+| **marketing** | 起草内容、规划 campaign、执行品牌声音、竞品简报、跨渠道报告 | Slack, Canva, Figma, HubSpot, Amplitude, Notion, Ahrefs, SimilarWeb, Klaviyo |
+| **legal** | 审核合同、分类 NDA、导航合规、评估风险、准备会议、起草模板回复 | Slack, Box, Egnyte, Jira, Microsoft 365 |
+| **finance** | 准备分录、对账、生成报表、差异分析、管理关账、支持审计 | Snowflake, Databricks, BigQuery, Slack, Microsoft 365 |
+| **data** | 查询数据集、可视化、写 SQL、统计分析、构建仪表板、验证工作 | Snowflake, Databricks, BigQuery, Definite, Hex, Amplitude, Jira |
+| **enterprise-search** | 跨邮件、聊天、文档、wiki 搜索 —— 一次查询所有公司工具 | Slack, Notion, Guru, Jira, Asana, Microsoft 365 |
+| **bio-research** | 连接临床前研究工具和数据库，加速早期生命科学 R&D | PubMed, BioRender, bioRxiv, ClinicalTrials.gov, ChEMBL, Synapse, Wiley, Owkin, Open Targets, Benchling |
+| **cowork-plugin-management** | 创建新插件或定制现有插件以适应组织的特定工具和工作流 | — |
+
+**安装**:
+
+**Claude Cowork**:
+从 claude.com/plugins 安装
+
+**Claude Code**:
+```bash
+# 添加市场
+claude plugin marketplace add anthropics/knowledge-work-plugins
+
+# 安装具体插件
+claude plugin install sales@knowledge-work-plugins
+```
+
+**使用**:
+安装后自动激活：
+- **Skills**: 相关时自动触发
+- **Commands**: 会话中可用 (如 `/sales:call-prep`, `/data:write-query`)
+
+**插件结构**:
+```
+plugin-name/
+├── .claude-plugin/plugin.json   # 清单
+├── .mcp.json                    # 工具连接 (MCP)
+├── commands/                    # 斜杠命令
+└── skills/                      # 领域知识 (自动触发)
+```
+
+**定制插件**:
+通用起点 → 为你公司定制：
+
+| 定制方式 | 操作 |
+|----------|------|
+| **换 connectors** | 编辑 `.mcp.json` 指向你的工具栈 |
+| **加公司上下文** | 在 skill 文件中添加术语、组织结构、流程 |
+| **调工作流** | 修改 skill 指令以匹配团队实际工作方式 |
+| **建新插件** | 用 cowork-plugin-management 插件或遵循上述结构 |
+
+**所有组件都是文件驱动**:
+- Markdown 文本
+- JSON 配置
+- 无代码、无基础设施、无构建步骤
+
+**贡献**:
+插件只是 Markdown 文件。Fork 仓库，修改，提交 PR。
+
+## 核心能力
+
+| 能力 | 说明 | 证据来源 | 置信度 |
+|------|------|----------|--------|
+| 11 角色插件 | 销售、支持、产品、营销、法律、财务、数据、搜索、生物研究 | README | 高 |
+| Skills | 领域知识自动触发 | README | 高 |
+| Commands | 显式斜杠命令 | README | 高 |
+| Connectors | MCP 服务器连接外部工具 | README | 高 |
+| 可定制 | 修改 connectors、上下文、工作流 | README | 高 |
+| 文件驱动 | Markdown + JSON，无代码 | README | 高 |
+| 双平台 | Claude Cowork + Claude Code | README | 高 |
+
+## 技术架构
+
+```
+┌─────────────────────────────────────────────────────────┐
+│           Knowledge Work Plugins 架构                      │
+│           (Claude 知识工作插件系统)                        │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │              用户接口层                            │  │
+│  │                                                  │  │
+│  │   Claude Cowork ─────┬───── Claude Code         │  │
+│  │      (Web UI)        │        (CLI)             │  │
+│  │                      │                           │  │
+│  │   claude.com/plugins │  claude plugin install   │  │
+│  │                      │                           │  │
+│  └─────────────────────────────────────────────────┘  │
+│                          │                               │
+│                          ▼                               │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │              插件管理层                            │  │
+│  │                                                  │  │
+│  │   11 个插件:                                      │  │
+│  │   ┌────┬────┬────┬────┬────┬────┐              │  │
+│  │   │prod│sale│cust│prod│mark│legl│              │  │
+│  │   ├────┼────┼────┼────┼────┼────┤              │  │
+│  │   │fin │data│srch│bio │mgmt│    │              │  │
+│  │   └────┴────┴────┴────┴────┴────┘              │  │
+│  │                                                  │  │
+│  │   productivity ──▶ sales ──▶ customer-support    │  │
+│  │   product-management ──▶ marketing ──▶ legal      │  │
+│  │   finance ──▶ data ──▶ enterprise-search        │  │
+│  │   bio-research ──▶ cowork-plugin-management     │  │
+│  │                                                  │  │
+│  └─────────────────────────────────────────────────┘  │
+│                          │                               │
+│                          ▼                               │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │              插件结构层                            │  │
+│  │                                                  │  │
+│  │   plugin-name/                                   │  │
+│  │   ├── .claude-plugin/                            │  │
+│  │   │   └── plugin.json        # 插件清单          │  │
+│  │   ├── .mcp.json              # MCP 工具连接      │  │
+│  │   ├── commands/              # 斜杠命令           │  │
+│  │   │   ├── call-prep.md                             │  │
+│  │   │   ├── write-spec.md                            │  │
+│  │   │   └── ...                                      │  │
+│  │   └── skills/              # 领域知识            │  │
+│  │       ├── discovery.md                             │  │
+│  │       ├── best-practices.md                        │  │
+│  │       └── ...                                      │  │
+│  │                                                  │  │
+│  │   纯文件驱动: Markdown + JSON                      │  │
+│  │   无代码、无基础设施、无构建步骤                    │  │
+│  │                                                  │  │
+│  └─────────────────────────────────────────────────┘  │
+│                          │                               │
+│                          ▼                               │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │              执行机制层                            │  │
+│  │                                                  │  │
+│  │   Skills (自动)                                   │  │
+│  │   ├── 领域专业知识                               │  │
+│  │   ├── 最佳实践                                   │  │
+│  │   └── 分步工作流                                 │  │
+│  │        ↓ 相关时自动触发                          │  │
+│  │                                                  │  │
+│  │   Commands (显式)                                 │  │
+│  │   ├── /sales:call-prep                           │  │
+│  │   ├── /data:write-query                          │  │
+│  │   └── /product-management:write-spec              │  │
+│  │        ↓ 用户显式调用                          │  │
+│  │                                                  │  │
+│  └─────────────────────────────────────────────────┘  │
+│                          │                               │
+│                          ▼                               │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │              外部连接层                            │  │
+│  │                                                  │  │
+│  │   Connectors (MCP 服务器)                        │  │
+│  │                                                  │  │
+│  │   ┌─────────────┐ ┌─────────────┐              │  │
+│  │   │  协作工具   │ │   CRM/销售  │              │  │
+│  │   ├─────────────┤ ├─────────────┤              │  │
+│  │   │ Slack       │ │ HubSpot     │              │  │
+│  │   │ Notion      │ │ Close       │              │  │
+│  │   │ Asana       │ │ Clay        │              │  │
+│  │   │ Linear      │ │ ZoomInfo    │              │  │
+│  │   │ Jira        │ │ Fireflies   │              │  │
+│  │   ├─────────────┤ ├─────────────┤              │  │
+│  │   │  数据分析   │ │   设计工具   │              │  │
+│  │   ├─────────────┤ ├─────────────┤              │  │
+│  │   │ Snowflake   │ │ Figma       │              │  │
+│  │   │ Databricks  │ │ Canva       │              │  │
+│  │   │ BigQuery    │ │ BioRender   │              │  │
+│  │   │ Amplitude   │ │             │              │  │
+│  │   ├─────────────┤ ├─────────────┤              │  │
+│  │   │  企业工具   │ │   研究数据库 │              │  │
+│  │   ├─────────────┤ ├─────────────┤              │  │
+│  │   │ Box         │ │ PubMed      │              │  │
+│  │   │ Egnyte      │ │ bioRxiv     │              │  │
+│  │   │ Microsoft   │ │ ClinicalTri │              │  │
+│  │   │ 365         │ │ ChEMBL      │              │  │
+│  │   │             │ │ Benchling   │              │  │
+│  │   └─────────────┘ └─────────────┘              │  │
+│  │                                                  │  │
+│  └─────────────────────────────────────────────────┘  │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 关键模块映射
+
+| 模块 | 目录 | 职责 | 关系 |
+|------|------|------|------|
+| productivity | `productivity/` | 任务日历管理 | 插件 |
+| sales | `sales/` | 销售工作流 | 插件 |
+| customer-support | `customer-support/` | 客服支持 | 插件 |
+| product-management | `product-management/` | 产品管理 | 插件 |
+| marketing | `marketing/` | 营销 | 插件 |
+| legal | `legal/` | 法律 | 插件 |
+| finance | `finance/` | 财务 | 插件 |
+| data | `data/` | 数据分析 | 插件 |
+| enterprise-search | `enterprise-search/` | 企业搜索 | 插件 |
+| bio-research | `bio-research/` | 生物研究 | 插件 |
+| cowork-plugin-management | `cowork-plugin-management/` | 插件管理 | 插件 |
+
+## 运行与开发方式
+
+**安装 - Claude Cowork**:
+访问 claude.com/plugins，点击安装
+
+**安装 - Claude Code**:
+```bash
+# 添加市场
+claude plugin marketplace add anthropics/knowledge-work-plugins
+
+# 安装具体插件 (以 sales 为例)
+claude plugin install sales@knowledge-work-plugins
+
+# 安装多个
+claude plugin install productivity@knowledge-work-plugins
+claude plugin install data@knowledge-work-plugins
+```
+
+**使用**:
+- **Skills**: 自动触发，无需手动调用
+- **Commands**: 在会话中输入斜杠命令
+  ```
+  /sales:call-prep
+  /data:write-query
+  /product-management:write-spec
+  /marketing:content-draft
+  ```
+
+**定制**:
+
+**1. 修改 connectors**:
+编辑插件目录下的 `.mcp.json`，指向你的具体工具实例
+
+**2. 添加公司上下文**:
+在 `skills/` 目录添加 Markdown 文件：
+- 公司术语
+- 组织结构
+- 内部流程
+
+**3. 调整工作流**:
+修改 `skills/` 中的指令，匹配团队实际工作方式
+
+**4. 创建新插件**:
+```bash
+# 使用 cowork-plugin-management 插件
+claude plugin install cowork-plugin-management@knowledge-work-plugins
+
+# 或遵循标准结构自建
+mkdir my-plugin/
+cp -r template/* my-plugin/
+```
+
+## 外部接口
+
+**插件列表**:
+| 插件 | 主要功能 | 关键 Connectors |
+|------|----------|----------------|
+| productivity | 任务、日历、工作流 | Slack, Notion, Asana, Linear, Jira |
+| sales | 客户研究、通话准备 | HubSpot, Close, Clay, ZoomInfo |
+| customer-support | 工单处理、知识库 | Intercom, HubSpot, Guru, Jira |
+| product-management | Spec、路线图、竞争 | Linear, Jira, Notion, Figma, Amplitude |
+| marketing | 内容、Campaign、品牌 | Canva, Figma, HubSpot, Ahrefs |
+| legal | 合同、NDA、合规 | Box, Egnyte, Jira |
+| finance | 分录、对账、审计 | Snowflake, Databricks, BigQuery |
+| data | SQL、可视化、仪表板 | Snowflake, BigQuery, Hex, Amplitude |
+| enterprise-search | 跨工具搜索 | Slack, Notion, Guru, Jira |
+| bio-research | 文献、基因组、靶点 | PubMed, bioRxiv, Benchling, ChEMBL |
+| cowork-plugin-management | 插件开发定制 | — |
+
+**Commands 示例**:
+| 插件 | 命令示例 |
+|------|----------|
+| sales | `/sales:call-prep`, `/sales:outreach-draft` |
+| data | `/data:write-query`, `/data:visualize` |
+| product-management | `/product-management:write-spec`, `/product-management:roadmap` |
+| finance | `/finance:reconciliation`, `/finance:close-support` |
+
+**文件结构**:
+```
+plugin-name/
+├── .claude-plugin/plugin.json   # 清单 (名称、版本、描述)
+├── .mcp.json                    # MCP 服务器配置
+├── commands/                    # 斜杠命令定义
+│   └── command-name.md          # 命令描述和指令
+└── skills/                      # 自动触发技能
+    ├── skill-name.md            # 领域知识
+    └── ...
+```
+
+## 数据流 / 控制流
+
+```
+用户输入 (Claude Cowork / Claude Code)
+    ↓
+┌────────────────────────────────────────────────────────────┐
+│ 1. 插件激活                                                │
+│    • Skills 检测相关上下文                                 │
+│    • Commands 等待显式调用                                 │
+└────────────────────────────────────────────────────────────┘
+    ↓
+┌────────────────────────────────────────────────────────────┐
+│ 2. 能力匹配                                                │
+│    ├── Skills (自动)                                        │
+│    │   └── 相关领域知识自动应用                           │
+│    └── Commands (显式)                                      │
+│        └── 解析 /plugin:command 格式                      │
+└────────────────────────────────────────────────────────────┘
+    ↓
+┌────────────────────────────────────────────────────────────┐
+│ 3. 工具连接 (MCP)                                          │
+│    • 读取 .mcp.json 配置                                   │
+│    • 连接外部工具 (Slack, Jira, HubSpot...)               │
+│    • 执行查询、读取数据、写入操作                         │
+└────────────────────────────────────────────────────────────┘
+    ↓
+┌────────────────────────────────────────────────────────────┐
+│ 4. 工作流执行                                              │
+│    • 加载 Skill 指令 (最佳实践、分步流程)                 │
+│    • 应用公司上下文 (术语、流程)                           │
+│    • 生成专业输出                                         │
+└────────────────────────────────────────────────────────────┘
+    ↓
+专业结果交付给用户
+```
+
+## 技术栈判断
+
+| 技术 | 依据 | 置信度 |
+|------|------|--------|
+| Markdown | 主要格式 | 高 |
+| JSON | 配置文件 | 高 |
+| MCP | Model Context Protocol | 高 |
+| Python | bio-research (76.1%) | 高 |
+| HTML | 辅助 (23.9%) | 中 |
+
+## 成熟度与风险
+
+| 维度 | 评估 | 说明 |
+|------|------|------|
+| 文档完整度 | 高 | README 清晰，插件描述完整 | 高 |
+| 上手难度 | 低 | 即装即用，自动激活 | 低 |
+| 架构复杂度 | 低 | 文件驱动，无代码 | 低 |
+| 外部依赖 | 中 | 依赖外部工具 API | 中 |
+| Stars | 高 | 10.8k stars |
+| 官方支持 | 高 | Anthropic 官方项目 | 高 |
+
+**注意事项**:
+- 需要配置外部工具的 API 凭证
+- Skills 自动触发可能需要在对话中引导
+- 定制需要了解公司业务和流程
+- 贡献前阅读贡献指南
+
+## 关联概念
+
+- [[Claude-Cowork]] - Anthropic 的 AI 工作平台
+- [[Claude-Code]] - Anthropic 的 CLI 编码工具
+- [[Claude-Plugins]] - Claude 插件系统
+- [[MCP]] - Model Context Protocol
+- [[Knowledge-Work]] - 知识工作自动化
+- [[Enterprise-AI]] - 企业 AI 应用
+
+---
+
+> 来源: [GitHub](https://github.com/anthropics/knowledge-work-plugins) | 置信度: 基于 GitHub README
+> 👤 **作者**: anthropics (Anthropic)
+> ⭐ **Stars**: 10.8k
+> 📜 **许可证**: Apache-2.0
+> 🔗 **官网**: claude.com/plugins
