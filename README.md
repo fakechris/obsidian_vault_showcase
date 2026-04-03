@@ -23,21 +23,22 @@ type: meta
 
 ---
 
-## 这是什么？
+## 两个项目，两种选择
 
-这是一个**完整的、带演示数据**的Obsidian知识库，展示了自动化知识管理Pipeline的最终效果。
+| 项目 | 定位 | 适合场景 |
+|------|------|----------|
+| **obsidian_vault_showcase** | **带Demo的开箱即用版本（本项目）** | 想先看效果，或基于现有内容继续 |
+| [**obsidian_vault_pipeline**](https://github.com/fakechris/obsidian_vault_pipeline) | **纯代码模板** | 想从零开始，理解Pipeline实现 |
 
-相比[obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline)（纯代码模板），本项目**开箱即用**，包含76篇真实深度解读作为演示。
+### 如何选择？
 
-### 包含内容
-
-| 类型 | 数量 | 说明 |
-|------|------|------|
-| 🌳 **Evergreen原子笔记** | 8个 | AI Agent、Prompt Caching等核心概念 |
-| 📚 **深度解读** | 76篇 | GitHub项目分析、技术文章解读 |
-| 🗺️ **MOC知识地图** | 3个 | AI、工具、编程领域导航 |
-| 🔧 **Pipeline脚本** | 全套 | 可继续自动生成内容 |
-| 🔗 **双向链接网络** | 200+ | 概念之间的关联关系 |
+| 你的需求 | 推荐项目 | 原因 |
+|----------|----------|------|
+| 想先看看效果再决定是否使用 | **本项目** | 有76篇真实内容可浏览 |
+| 想开箱即用，在上面改 | **本项目** | 克隆后直接Obsidian打开 |
+| 想从零开始，完全自定义 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 空白模板，无demo数据 |
+| 想了解Pipeline技术实现 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 代码结构更清晰 |
+| 想基于现有内容继续生成 | **本项目** | 已有内容+完整脚本 |
 
 ---
 
@@ -148,25 +149,6 @@ AUTO_VAULT_MODEL=minimax/MiniMax-M2.5
 # Pinboard（可选，用于自动抓取书签）
 PINBOARD_TOKEN=username:token
 ```
-
----
-
-## 相关项目
-
-| 项目 | 用途 | 适合场景 |
-|------|------|----------|
-| **obsidian_vault_showcase** | 本项目 - **带Demo的开箱即用版本** | 想先看效果，或基于现有内容继续 |
-| [**obsidian_vault_pipeline**](https://github.com/fakechris/obsidian_vault_pipeline) | 模板项目 - **纯代码，从零开始** | 想完全自定义，理解Pipeline实现 |
-
-### 如何选择？
-
-| 你的需求 | 推荐项目 | 原因 |
-|----------|----------|------|
-| 想先看看效果再决定是否使用 | **本项目** | 有76篇真实内容可浏览 |
-| 想开箱即用，在上面改 | **本项目** | 克隆后直接Obsidian打开 |
-| 想从零开始，完全自定义 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 空白模板，无demo数据 |
-| 想了解Pipeline技术实现 | [obsidian_vault_pipeline](https://github.com/fakechris/obsidian_vault_pipeline) | 代码结构更清晰 |
-| 想基于现有内容继续生成 | **本项目** | 已有内容+完整脚本 |
 
 ---
 
