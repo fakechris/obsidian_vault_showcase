@@ -1,3 +1,11 @@
+---
+title: "Claude Prompt Auto-Caching"
+description: "自动管理缓存断点降低成本和延迟"
+date: 2025-12-24
+type: interpretation
+tags: [Claude, Prompt-Caching, Cost-Optimization, Context-Engineering]
+---
+
 # Claude Prompt Auto-Caching
 
 ## 来源

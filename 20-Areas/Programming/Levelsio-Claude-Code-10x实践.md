@@ -1,3 +1,11 @@
+---
+title: "Levelsio Claude Code 10x产出实践"
+description: "通过bypass权限模式实现一周10倍产出"
+date: 2026-02-02
+type: interpretation
+tags: [Claude-Code, Indie-Hacker, Productivity, Shipping, AI-Coding]
+---
+
 # Levelsio Claude Code 10x产出实践
 
 ## 来源

@@ -1,3 +1,11 @@
+---
+title: "Writing Code Is Cheap Now"
+description: "Agentic工程模式 - 写代码变便宜了"
+date: 2026-03-01
+type: interpretation
+tags: [Agentic-Engineering, Software-Engineering, AI-Coding, Best-Practices]
+---
+
 # Writing Code Is Cheap Now - Agentic工程模式
 
 ## 来源
